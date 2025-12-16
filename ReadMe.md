@@ -17,10 +17,10 @@ Projektplanungssoftware für Kreative und Einzelpersonen. Eine moderne Anwendung
 
 ## Architektur
 
-Die Anwendung folgt einer Microservice-Architektur mit drei separaten Services:
+Die Anwendung besteht aus drei separaten Komponenten: Frontend, Backend und einem dedizierten Authentifizierungs-Server.
 
 ### Auth_Server
-Microservice für Authentifizierung und Benutzerverwaltung
+Separater Service für Authentifizierung und Benutzerverwaltung
 
 **Technologien:**
 - .NET 9.0
@@ -110,7 +110,7 @@ ProjectME_ShowCase/
 
 ### Containerisierung mit Docker
 
-Die Anwendung ist für Container-basiertes Deployment konzipiert. Jeder Service wird als separater Docker-Container bereitgestellt:
+Die Anwendung ist für Container-basiertes Deployment konzipiert. Jede Komponente wird als separater Docker-Container bereitgestellt:
 
 - **Auth_Server** – Eigenständiger Container für Authentifizierung
 - **ProjectME_Backend** – Container für die Haupt-API

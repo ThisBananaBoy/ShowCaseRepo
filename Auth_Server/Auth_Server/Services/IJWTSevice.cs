@@ -1,0 +1,6 @@
+namespace Auth_Server.Services;
+
+public interface IJwtService
+{
+    string GenerateToken(string userId, string email, IList<string> roles);
+}

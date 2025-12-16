@@ -1,0 +1,135 @@
+---
+id: no-manual-imports-from-components
+
+title: "Don't import components from /components directory"
+
+alwaysApply: true
+
+selectors:
+
+  language_ids: ["vue", "javascript", "typescript"]
+
+description: |
+
+  Prevents Cursor from writing manual import statements for components that live in the /components directory.
+
+  Assumes that components in that directory are auto-registered by the framework (e.g. Nuxt 3).
+
+---
+
+⛔ **Do not write `import MyComponent from '~/components/MyComponent.vue'` or similar.**
+
+✅ **Use `<MyComponent />` directly in the template. Nuxt/Vue will handle the import automatically.**
+
+This applies to:
+
+- All imports from `~/components/`, `@/components/`, or relative paths like `../components/`
+
+- Vue component files with `.vue` or `.ts/.js` component definitions
+
+- Both `<script setup>` and classic script blocks
+
+Cursor should assume that all components from `/components` are auto-available and never suggest importing them manually.
+
+---
+
+id: enforce-html-self-closing
+
+title: "Use self-closing syntax for empty HTML tags"
+
+alwaysApply: true
+
+selectors:
+
+  language_ids: ["vue"]
+
+description: |
+
+  Enforces that empty HTML elements like <div></div> are written using self-closing syntax <div />.
+
+  This improves readability and keeps templates clean.
+
+---
+
+⛔ **Avoid writing empty HTML tags like `<div></div>` or `<span></span>`.**
+
+✅ **Instead, write them as self-closing: `<div />`, `<span />`, etc.**
+
+---
+
+id: tailwind-no-style
+
+title: "Tailwind only – no <style> tags"
+
+alwaysApply: true
+
+selectors:
+
+  language_ids: ["html", "javascriptreact", "typescriptreact"]
+
+description: |
+
+  Prevents Cursor from generating <style> … </style> blocks or external CSS files.
+
+  Only Tailwind utility classes or inline class attributes should be used.
+
+---
+
+⛔ **Never use `<style> … </style>` tags or external CSS files.**
+
+✅ **Always use Tailwind utility classes or inline `class` attributes for styling.**
+
+---
+
+id: require-tablet-compatibility
+
+title: "Optimize for tablet devices"
+
+alwaysApply: true
+
+selectors:
+
+  language_ids: ["vue", "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "css"]
+
+description: |
+
+  Ensures that all frontend changes are optimized for tablet devices.
+
+  This frontend is designed for tablet usage. A separate mobile app is being developed for phones.
+
+  The minimum supported resolution is tablet size. The app is also used on desktops and laptops, so it should scale up responsively.
+
+---
+
+✅ **Always design and adjust layouts, interactions, and styling with tablet devices as the minimum target.**  
+
+⛔ **Do not optimize for phones (≤ 640px) - a separate app handles that.**  
+
+⛔ **Do not assume a desktop-only layout.**
+
+✅ **Minimum resolution: tablet (768px+). The app should scale responsively up to desktop/laptop sizes.**
+
+✅ **Optimize for tablet screen sizes (typically 768px - 1024px width, portrait and landscape) as the baseline, but ensure it works well on larger screens too.**
+
+When modifying or generating UI code, Cursor should:
+
+- Design for tablet viewport sizes (768px - 1024px width range) as the minimum
+
+- Ensure responsive scaling to larger screens (desktops, laptops)
+
+- Support both portrait and landscape orientations on tablets
+
+- Use touch-friendly interactions (larger tap targets than desktop, but can be more compact than phone)
+
+- Use responsive Tailwind classes with tablet breakpoints (`md:`, `lg:`, `xl:`) as primary targets
+
+- Ensure layouts work well in both orientations on tablets and scale appropriately on larger screens
+
+- Consider tablet-specific UX patterns (split views, sidebars, etc.) that also work on desktop
+
+- Keep fonts readable but can be smaller than phone-optimized designs
+
+- Ensure buttons and interactive elements are touch-friendly but don't need to be as large as phone interfaces
+
+- Use max-width containers or appropriate constraints to prevent layouts from becoming too wide on large desktop screens
+

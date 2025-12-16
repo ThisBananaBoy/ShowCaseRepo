@@ -1,0 +1,49 @@
+# ProjectME - Nuxt 4 Project Rules
+
+## Code Style
+
+- **Quotes**: Use single quotes (`'`) for strings, not double quotes (`"`)
+- **Semicolons**: Never use semicolons at the end of statements
+- **Indentation**: 2 spaces
+- **Trailing commas**: Never use trailing commas
+
+## Vue/Nuxt Conventions
+
+- Use `<script setup lang="ts">` for all Vue components
+- Use Composition API with `ref`, `computed`, `watch`
+- Auto-import composables from `@nuxt/ui`, `@vueuse/core`, `date-fns`
+- No need to import `ref`, `computed`, `watch`, `useRoute`, `useRouter` - they're auto-imported
+
+## Component Usage
+
+- Use Nuxt UI components: `UButton`, `UCard`, `UInput`, `UBadge`, etc.
+- Use Lucide icons: `i-lucide-icon-name`
+- Use Tailwind classes for styling
+
+## TypeScript
+
+- Use TypeScript for type safety
+- Prefer interfaces over types for object shapes
+- Use optional chaining (`?.`) and nullish coalescing (`??`)
+
+## Naming Conventions
+
+- Components: PascalCase
+- Composables: camelCase with `use` prefix
+- Functions: camelCase
+- Constants: UPPER_SNAKE_CASE or camelCase
+
+## Architecture
+
+- Mock data in `composables/useMockData.ts`
+- Keep components simple and focused
+- Use computed properties for derived state
+- Avoid complex logic in templates
+
+## Design Principles
+
+- Modern, minimalist design
+- Professional look, no bright colors
+- Subtle color accents (blue-slate theme)
+- Focus on readability and usability
+
